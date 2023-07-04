@@ -19,10 +19,12 @@ app.post("/api", (req, res) => {
      const User = req.body.User;
      const IO_Date = req.body.IO_Date;
      const IO_time = req.body.IO_time;
+     const long = req.body.long;
+     const lati = req.body.lati;
     // console.log(User) 
-const sqllnsert = "INSERT INTO users (User_id , IO_Date,IO_time) values (?,?,?)";
+const sqllnsert = "INSERT INTO users (User_id , IO_Date,IO_time, longtitute, latitude) values (?,?,?,?,?)";
 //const sqllnsert = "INSERT INTO users (User_id , IO_Date,IO_time) values ('d','2022-02-02','03:00:00')";
-db.query(sqllnsert, [User , IO_Date, IO_time],(err, result ) => {
+db.query(sqllnsert, [User , IO_Date, IO_time,long,lati],(err, result ) => {
    
   //  db.query(sqllnsert, (err, result ) => {
         console.log(err)
@@ -50,3 +52,4 @@ db.query(sqllnsert, [User , Password, inst],(error, result ) => {
 app.listen (3001, () => {
    console. log("running on port 3001");
 });
+
