@@ -37,13 +37,25 @@ db.query(sqllnsert, [User , IO_Date, IO_time,long,lati],(err, result ) => {
 
 
 app.post("/sign", (req, res) => {
-
     const User = req.body.User;
     const Password = req.body.Password;
     const inst = req.body.inst;
 
 const sqllnsert = "INSERT INTO reg (User_id , Password,inst) values (?,?,?)";
 db.query(sqllnsert, [User , Password, inst],(error, result ) => {
+    console.log(error);
+})
+
+});
+
+app.post("/leave", (req, res) => {
+
+    const User = req.body.User;
+    const apDate = req.body.apDate;
+    const Remarks = req.body.Remarks;
+
+const sqllnsert = "INSERT INTO LEAVES (User_id , Leave_date,Remarks) values (?,?,?)";
+db.query(sqllnsert, [User , apDate, Remarks],(error, result ) => {
     console.log(error);
 })
 
