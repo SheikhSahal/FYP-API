@@ -54,7 +54,7 @@ app.post("/leave", (req, res) => {
     const apDate = req.body.apDate;
     const Remarks = req.body.Remarks;
 
-const sqllnsert = "INSERT INTO LEAVES (User_id , Leave_date,Remarks) values (?,?,?)";
+const sqllnsert = "INSERT INTO F_LEAVES (User_id , Leave_date,Remarks) values (?,?,?)";
 db.query(sqllnsert, [User , apDate, Remarks],(error, result ) => {
     console.log(error);
 })
